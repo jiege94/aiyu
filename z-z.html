@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="cz.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=no">
+</head>
+<body>
+	<div class="z-out">
+		<div class="z-top">
+			<a href="z-d.html"><</a>
+			<h3>注册</h3>
+		</div>
+		<div class="z-wcon">
+			<div class="z-wcon1">
+				<div class="z-w1"></div>
+				<span class='zw-s1'></span>
+				<input type="text" name="" value="用户名" id="zzipt1" class="zwipt">			
+			</div>
+			<div class="z-wcon1">
+				<div class="z-w1"></div>
+				<span class='zw-s1'></span>
+				<input type="text" name="" value="密码" id="zzipt2" class="zwipt">			
+			</div>
+			<div class="z-wcon1">
+				<div class="z-w1"></div>
+				<span class='zw-s1'></span>
+				<input type="text" name="" value="确认密码" id="zzipt3" class="zwipt">			
+			</div>
+			<div class="z-wcon4 z-zcon4">
+				<div class="z-w1 z-ti"></div>
+				<span class="z-ti1">注册</span>
+			</div>
+			<div class="z-you">
+				<a href="z-d.html">已有账号登录</a>
+			</div>	
+			<div class="z-y z-zy">
+				<div class="z-y1"></div>
+				<a href="">社交账号一键登录</a>
+			</div>
+		</div>
+	</div>
+	<script src='jquery-1.8.3.min.js'></script>
+	<script src='ort.js'></script>
+	<script>
+		$(function(){
+			$('#zzipt1').focus(function(){
+				if ($('#zzipt1').val()=='用户名') {
+					$('#zzipt1').val('');
+				};
+			})
+			$('#zzipt1').blur(function(){
+				if ($('#zzipt1').val()=='') {
+					$('#zzipt1').val('用户名');
+				};
+			})
+			$('#zzipt2').focus(function(){
+				if ($('#zzipt2').val()=='密码') {
+					$('#zzipt2').val('');
+				};
+			})
+			$('#zzipt2').blur(function(){
+				if ($('#zzipt2').val()=='') {
+					$('#zzipt2').val('密码');
+				};
+			})
+			$('#zzipt3').focus(function(){
+				if ($('#zzipt3').val()=='确认密码') {
+					$('#zzipt3').val('');
+				};
+			})
+			$('#zzipt3').blur(function(){
+				if ($('#zzipt3').val()=='') {
+					$('#zzipt3').val('确认密码');
+				};
+			})
+			$('.z-zcon4').click(function(){
+				if ($('#zzipt1').val()=='用户名'||$('#zzipt1').val()==''||$('#zzipt2').val()==''||$('#zzipt2').val()=='密码'||$('#zzipt3').val()==''||$('#zzipt3').val()=='确认密码') {
+					alert('请填写完整');
+				}else{
+					if ($('#zzipt2').val()!=$('#zzipt3').val()) {
+						alert('确认密码与密码不符,请重新填写');
+					}else{
+						for (var i = 0; i < $.getcookie().length; i++) {
+							if ($('#zzipt1').val()==$.getcookie()[i]) {
+								alert('此用户名已经注册过,请重新输入用户名');
+								return false;
+							}
+						}	
+						alert('注册成功');		
+						var x=Math.random();
+						$.setcookie('user'+x,$('#zzipt1').val(),7);
+						$.setcookie('pass'+x,$('#zzipt2').val(),7);
+					}
+						
+				}
+				$('#zzipt1').val('用户名');
+				$('#zzipt2').val('密码');
+				$('#zzipt3').val('确认密码');
+			})
+			$.extend({
+				setcookie:function(key,value,day){
+					var date=new Date();
+					date.setDate(date.getDate()+day);
+					document.cookie=key+'='+escape(value)+';expires='+date;
+				},
+				getcookie:function(key){
+					var arr3=[];
+					var cookies=unescape(document.cookie);
+					var arr1=cookies.split('; ');
+					for (var i = 0; i < arr1.length; i++) {
+						var arr2=arr1[i].split('=');
+						arr3.push(arr2[1]);
+					}
+					return arr3;
+				}
+			})
+		})
+	</script>
+</body>
+</html>

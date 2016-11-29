@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>发送</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="cz.css">
+	<script src="jquery-1.8.3.min.js"></script>
+	<script src="ort.js"></script>
+</head>
+<body>
+	<div class="s-outer s-f-outer">
+		<div class="s-f-head">
+			<a class="s-return r-i" href="s-s.html">
+				<i></i>
+			</a>
+			<a class="s-send" href="javascript:;">发送</a>
+		</div>
+		<div class="s-f-con">
+			<div class="s-f-think">
+				<textarea name="" id="text"></textarea>
+				<p>写下你此刻的想法......</p>
+			</div>
+			<div class="s-f-plus">
+				<a class="s-plus1" href="javascript:;">
+					<img src="image/s4.png" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(".s-return").click(function(){
+			history.go(-1);
+		})
+		$(".s-send").click(function(){
+			window.location.href="s-s.html";
+		})
+		$("#text").focus(function(){
+			if($("#text").val()==""){
+				$(".s-f-think p").css("display","none");
+			}
+		})
+		$("#text").blur(function(){
+			if($("#text").val()==""){
+				$(".s-f-think p").css("display","block");
+			}
+		})
+	</script>
+</body>
+</html>

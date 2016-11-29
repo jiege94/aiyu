@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="cz.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=no">
+</head>
+<body>
+	<div class="z-out">
+		<div class="z-top">
+			<a href=""><</a>
+			<h3>登录</h3>
+		</div>
+		<img src="image/z1.png" alt="" class="zd-i1">
+		<div class="zd-con">
+			<div class="zd-user"></div>
+			<span class='zd-s1'></span>
+			<span class='zd-s2'></span>
+			<input type="text" name="" value="用户名" id="zipt1">
+			<input type="password" name="" value="密码" id="zipt2">
+		</div>
+		<div class="z-in">
+			<div class="z-lo"></div>
+			<span class="z-lo1">Login in</span>
+		</div>
+		<div class="z-wz">
+			<a href="z-w.html" class="z-w">忘记密码</a>
+			<a href="z-z.html" class="z-z">注册账号</a>
+		</div>	
+		<div class="z-y">
+			<div class="z-y1"></div>
+			<a href="">社交账号一键登录</a>
+		</div>
+	</div>
+	<script src='jquery-1.8.3.min.js'></script>
+	<script src='ort.js'></script>
+	<script>
+		$(function(){
+			$('#zipt1').focus(function(){
+				if($('#zipt1').val()=='用户名'){
+					$('#zipt1').val('');
+				}
+			})
+			$('#zipt1').blur(function(){
+				if($('#zipt1').val()==''){
+					$('#zipt1').val('用户名');
+				}
+			})
+			$('#zipt2').focus(function(){
+				if($('#zipt2').val()=='密码'){
+					$('#zipt2').val('');
+				}
+			})
+			$('#zipt2').blur(function(){
+				if($('#zipt2').val()==''){
+					$('#zipt2').val('密码');
+				}
+			})
+			$('.z-lo1').click(function(){
+				for (var i = 0; i < $.getcookie().length; i++) {
+					if ($('#zipt1').val()==$.getcookie()[i]) 
+						{
+							if ($('#zipt2').val()!=$.getcookie()[i+1]) {
+								alert('密码有误，请重新输入');
+								return false;
+							}else{
+								window.open('cp.html');
+								return false;
+						}
+					}
+				}
+				alert('账号有误');
+				$('#zipt1').val('用户名');
+				$('#zipt2').val('密码');
+			})
+			$.extend({
+				getcookie:function(key){
+					var arr3=[];
+					var cookies=unescape(document.cookie);
+					var arr1=cookies.split('; ');
+					for (var i = 0; i < arr1.length; i++) {
+						var arr2=arr1[i].split('=');
+						arr3.push(arr2[1]);
+					}
+					return arr3;
+				}
+			})
+
+		})
+	</script>
+</body>
+</html>

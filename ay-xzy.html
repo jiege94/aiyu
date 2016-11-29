@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="cz.css">
+	<script type="text/javascript"src="jquery-1.8.3.min.js"></script>
+	<script src="ort.js"></script>
+</head>
+<body>
+	<div class="x-ayzhengti">
+		<div class="xzy-byc">
+			<div class="x-ayhead">
+				<img src="image/x0.png" class="x0png">
+				<span class="xzy-zy">爱语</span>
+				<img src="image/x17.png" class="x17">
+			</div>
+			<div class="xzy-con">
+				<div class="xay-con-bai">
+					<img src="image/x2.jpg" class="x2jpga">
+					<img src="image/x5.png" class="x5pnga">
+					<span class="xay-zn">张娜</span>
+					<span class="xay-ln">李楠</span>
+				</div>
+				<img src="image/x19.png" class="x8pnga">
+				<div class="xzy-con-bai2" >
+					<img src="image/x3.png" class="x3png">
+					<img src="image/x4.png" class="x4png">
+				</div>
+				<div class="xay-con-pink">
+					<img src="image/x20.png" alt="">
+					<p>2015-10-16</p>
+				</div>
+				<div class="zay-btm"></div>
+				<div class="zay-jcgx">解除关系</div>
+			</div>
+		</div>
+		<div id="xay-yc">
+			<div class="xay-yc-s">
+				<div class="x9png">
+					<img src="image/x9.png" alt="">
+				</div>
+				<span class="xzy-ivia">iViperious</span>
+			</div>
+			<div class="xzy-yc-x">
+				<div class="xzy-zyaa">
+					<a>主页</a>
+				</div>
+				<div class="xzy-ssq">
+					<a href="s-s.html">说说墙</a>
+				</div>
+				<div class="xzy-lts">
+					<a href="w-talk.html">聊天室</a>
+				</div>
+				<div class="xzy-sz">
+					<a href="w-sz2.html">设置</a>
+				</div>
+				<div class="xzy-tcdla">
+					<a>退出登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var flag=0;
+			$(".x0png").click(function(){
+				if (flag==0) {
+					$(".xzy-byc").animate({left:"421px"},1000);
+					$("#xay-yc").animate({left:"0"},1000);
+					flag=1;
+				}else {
+					$(".xzy-byc").animate({left:"0px"},1000);
+					$("#xay-yc").animate({left:"-421px"},1000);
+					flag=0;
+				}				
+			})
+			$(".xzy-zyaa").click(function(){
+				$(".xzy-byc").animate({left:"0px"},"3000");
+				$("#xay-yc").animate({left:"-421px"},"3000");
+			})
+	})
+	</script>
+</body>
+</html>
